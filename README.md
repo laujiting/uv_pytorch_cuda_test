@@ -4,12 +4,20 @@ just test
 ```python
 # init
 cd uv_pytorch_cuda_test
-uv init
+uv init -p 3.14
 
 # windows system env path
 # maybe not work
 UV_DEFAULT_INDEX
+# not test
+UV_INDEX_URL
 https://pypi.tuna.tsinghua.edu.cn/simple
+# test
+echo $env:UV_INDEX_URL # 输出应为：https://pypi.tuna.tsinghua.edu.cn/simple
+# linux
+echo 'export UV_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple' >> ~/.bashrc
+source ~/.bashrc  # 立即生效
+echo $UV_INDEX_URL # 输出应为：https://pypi.tuna.tsinghua.edu.cn/simple
 
 # update pyproject.toml
 [tool.uv]
